@@ -27,6 +27,7 @@ class PromoController extends Controller
         // var -> champs dans bdd = var dans chmps $req ->input(nom input)
         $promo->annee = $request->input('annee');
         $promo->save();
+        session()->flash('success', 'année  a étè bien crée');
         return redirect('promo');
     }
     //recuperer une année et modifier
@@ -50,7 +51,7 @@ class PromoController extends Controller
         $promo = Promo::find($id);
 
         $promo->delete();
-
+        session()->flash('danger', 'année a étè  supprimé');
         return redirect('promo');
     }
 }

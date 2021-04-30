@@ -36,3 +36,7 @@ Route::post('promo', 'PromoController@store');
 Route::get('promo/{id}/edit', 'PromoController@edit');
 Route::put('promo/{id}', 'PromoController@update');
 Route::get('promo/{id}', 'PromoController@destroy');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

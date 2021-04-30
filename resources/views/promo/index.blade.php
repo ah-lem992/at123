@@ -4,6 +4,20 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+                @if(session()->has('success'))
+                    <div class="alert alert-success">
+
+                        {{ session()->get('success') }}
+
+                    </div>
+
+                @elseif(session()->has('danger'))
+                    <div class="alert alert-danger">
+
+                        {{ session()->get('danger') }}
+
+                    </div>
+                    @endif
         <br/>
             <h1>Les années </h1>
             <div class="pull-center">
@@ -26,11 +40,11 @@
                             <td>
                                 <form action="{{ url('promo/'.$promo->id ) }} " method="post ">
 
-                                <a href="{{ url('promo/' .$promo->id. '/edit') }}" class="btn btn-default">editer</a>
+                                <a href="{{ url('promo/' .$promo->id. '/edit') }}" class="btn btn-primary">Editer</a>
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
 
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger">Supprimer</button>
 
                                     </form>
 
